@@ -1,0 +1,49 @@
+# Project: 项目1
+# Makefile created by Red Panda C++ 1.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 项目1_private.res
+OBJ      = ../../c/list项目/贪吃蛇/main.o ../../c/list项目/贪吃蛇/menu.o ../../c/list项目/贪吃蛇/move.o ../../c/list项目/贪吃蛇/pos.o ../../c/list项目/贪吃蛇/snake.o ../../c/list项目/贪吃蛇/score.o $(RES)
+LINKOBJ  = ../../c/list项目/贪吃蛇/main.o ../../c/list项目/贪吃蛇/menu.o ../../c/list项目/贪吃蛇/move.o ../../c/list项目/贪吃蛇/pos.o ../../c/list项目/贪吃蛇/snake.o ../../c/list项目/贪吃蛇/score.o $(RES)
+CLEANOBJ  =  ..\..\c\list项目\贪吃蛇\main.o ..\..\c\list项目\贪吃蛇\menu.o ..\..\c\list项目\贪吃蛇\move.o ..\..\c\list项目\贪吃蛇\pos.o ..\..\c\list项目\贪吃蛇\snake.o ..\..\c\list项目\贪吃蛇\score.o 项目1_private.res 项目1.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = 项目1.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../../c/list项目/贪吃蛇/main.o: ../../c/list项目/贪吃蛇/main.c
+	$(CC) -c D:/c/list项目/贪吃蛇/main.c -o ../../c/list项目/贪吃蛇/main.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=utf-8
+
+../../c/list项目/贪吃蛇/menu.o: ../../c/list项目/贪吃蛇/menu.c
+	$(CC) -c D:/c/list项目/贪吃蛇/menu.c -o ../../c/list项目/贪吃蛇/menu.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=utf-8
+
+../../c/list项目/贪吃蛇/move.o: ../../c/list项目/贪吃蛇/move.c
+	$(CC) -c D:/c/list项目/贪吃蛇/move.c -o ../../c/list项目/贪吃蛇/move.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=utf-8
+
+../../c/list项目/贪吃蛇/pos.o: ../../c/list项目/贪吃蛇/pos.c
+	$(CC) -c D:/c/list项目/贪吃蛇/pos.c -o ../../c/list项目/贪吃蛇/pos.o $(CFLAGS) 
+
+../../c/list项目/贪吃蛇/snake.o: ../../c/list项目/贪吃蛇/snake.c
+	$(CC) -c D:/c/list项目/贪吃蛇/snake.c -o ../../c/list项目/贪吃蛇/snake.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=utf-8
+
+../../c/list项目/贪吃蛇/score.o: ../../c/list项目/贪吃蛇/score.c
+	$(CC) -c D:/c/list项目/贪吃蛇/score.c -o ../../c/list项目/贪吃蛇/score.o $(CFLAGS) 
+
+项目1_private.res: 项目1_private.rc 
+	$(WINDRES) -i 项目1_private.rc --input-format=rc -o 项目1_private.res -O coff 
+
